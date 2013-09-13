@@ -2,6 +2,8 @@
 void player1();
 void display();
 void player2();
+int flag=0;
+void checkcondition();
 char tictac [3][3];
 void main()
 {
@@ -24,7 +26,113 @@ void main()
 		p1='O';
 		p2='X';
 	
+	for(i=0;i<4;i++)
+	{
+		player1();
+		display();
+		checkcondition();
+		player2();
+		display();
+		checkcondition();
+	}
+		player1();
+		display();
+		checkcondition();
+		if(flag==0)
+			printf("the game is a draw game\n");
 }
 void player1()
 {
+	int a,b;
+	printf("Player 1 enter the co-ordinates\n");
+	scanf("%d %d",&a,&b);
 	
+	
+			if(tictac[a-1][b-1] == '-')
+			{
+				tictac[a-1][b-1]=p1;
+			}
+			else
+			{
+				printf("position already occupied\n");
+				player1();	
+			}
+}
+void player2()
+{
+	int a,b;
+	printf("Player 2 enter the co-ordinates\n");
+	scanf("%d %d",&a,&b);
+
+	
+			if(tictac[a-1][b-1] == '-')
+			{
+				tictac[a-1][b-1]=p2;
+			}
+			else
+			{
+				printf("position already occupied\n");
+				player2();	
+			}
+}
+void checkcondition()
+{
+	int flag=0;
+	int i;
+	int j;
+	for(i=0;i<3;i++)
+	{
+		if((tictac[i][0]==tictac[i][1])&&(tictac[i][1]==tictac[i][2]))
+		{
+			if(tictac[i][0]==p1)
+			{	flag=1;
+				break;
+			}
+			else if(tictac[i][0]==p2)
+			{
+				flag=2;
+				break;
+			}
+		}
+		else if((tictac[0][i]==tictac[1][i])&&(tictac[1][i]==tictac[2][i]))
+		{
+			if(tictac[0][i]==p1)
+			{	flag=1;
+				break;
+			}
+			else if(tictac[0][i]==p2)
+			{
+				flag=2;
+				break;
+			}
+		}
+	}
+	if(((tictac[0][0]==tictac[1][1])&&(tictac[1][1]==tictac[2][2]))||((tictac[0][2]==tictac[1][1])&&(tictac[1][1]==tictac[2][0])))
+	{
+		if(tictac[1][1]==p1)
+		{	flag=1;
+			break;
+		}
+		else
+		{	flag=2;
+			break;
+		}
+	}
+}
+void display()
+{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
