@@ -1,5 +1,6 @@
-//comment
+
 #include <stdio.h>
+#include <stdlib.h>
 void player1();
 void display();
 void player2();
@@ -21,11 +22,11 @@ void main()
 	printf("Please enter the element to be chosen by player 1 'X' or 'O'\n");
 	scanf("%c",&ele);	
 	display();
-	if(ele=='x'||'X')
+	if(ele =='x'|| ele =='X')
 	{	p1='X';
 		p2='O';
 	}	
-	else if(ele=='x'||'X')
+	else if(ele=='o'|| ele=='O')
 	{
 		p1='O';
 		p2='X';
@@ -42,6 +43,13 @@ void main()
 		player1();
 		display();
 		checkcondition();
+		if(flag==0)
+		{
+			printf("The game is a draw\n");
+			printf("\n");
+			printf("\n");
+			exit(0);
+		}
 		
 }
 void player1()
@@ -84,7 +92,7 @@ void checkcondition()
 	int i;
 	for(i=0;i<3;i++)
 	{
-		if( ((tictac[i][0]==tictac[i][1])&&(tictac[i][1]==tictac[i][2]))==('X'||'O') )
+		if((tictac[i][0]==tictac[i][1])&&(tictac[i][1]==tictac[i][2]))
 		{
 			if(tictac[i][0]==p1)
 			{	flag=1;
@@ -96,7 +104,7 @@ void checkcondition()
 				break;
 			}
 		}
-		else if( ((tictac[0][i]==tictac[1][i])&&(tictac[1][i]==tictac[2][i])) == ('X'||'O') )
+		else if((tictac[0][i]==tictac[1][i])&&(tictac[1][i]==tictac[2][i]))
 		{
 			if(tictac[0][i]==p1)
 			{	flag=1;
@@ -109,25 +117,31 @@ void checkcondition()
 			}
 		}
 	}
-	if(((tictac[0][0]==tictac[1][1])&&(tictac[1][1]==tictac[2][2]))||((tictac[0][2]==tictac[1][1])&&(tictac[1][1]==tictac[2][0])))
+	if( ((tictac[0][0]==tictac[1][1]) && (tictac[1][1]==tictac[2][2]))   ||   ((tictac[0][2]==tictac[1][1])&&(tictac[1][1]==tictac[2][0])) )
 	{
 		if(tictac[1][1]==p1)
 		{	flag=1;
 			
 		}
-		else
+		else if (tictac[1][1]==p2)
 		{	flag=2;
 			
 		}
 	}
-
+	
 	if(flag==1)
 	{
 		printf("Player 1 wins the game!! =)\n");
+		printf("\n");
+		printf("\n");
+		exit(0);
 	}
 	else if(flag==2)
 	{
 		printf("Player 2 wins the game!! =)\n");
+		printf("\n");		
+		printf("\n");		
+		exit(0);
 	}
 }
 void display()
@@ -140,17 +154,3 @@ void display()
 	
 	printf("\n");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
