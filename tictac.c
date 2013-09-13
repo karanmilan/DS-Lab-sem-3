@@ -37,20 +37,11 @@ void main()
 		player2();
 		display();
 		checkcondition();
-		else if(flag==1)
-			printf("Player 1 is winner\n");
-		else if(flag==2)
-			printf("Player 2 is winner\n");
 	}
 		player1();
 		display();
 		checkcondition();
-		if(flag==0)
-			printf("the game is a draw game\n");
-		else if(flag==1)
-			printf("Player 1 is winner\n");
-		else if(flag==2)
-			printf("Player 2 is winner\n");
+		
 }
 void player1()
 {
@@ -90,10 +81,9 @@ void checkcondition()
 {
 	int flag=0;
 	int i;
-	int j;
 	for(i=0;i<3;i++)
 	{
-		if((tictac[i][0]==tictac[i][1])&&(tictac[i][1]==tictac[i][2]))
+		if( ((tictac[i][0]==tictac[i][1])&&(tictac[i][1]==tictac[i][2]))==('X'||'O') )
 		{
 			if(tictac[i][0]==p1)
 			{	flag=1;
@@ -105,7 +95,7 @@ void checkcondition()
 				break;
 			}
 		}
-		else if((tictac[0][i]==tictac[1][i])&&(tictac[1][i]==tictac[2][i]))
+		else if( ((tictac[0][i]==tictac[1][i])&&(tictac[1][i]==tictac[2][i])) == ('X'||'O') )
 		{
 			if(tictac[0][i]==p1)
 			{	flag=1;
@@ -128,6 +118,15 @@ void checkcondition()
 		{	flag=2;
 			
 		}
+	}
+
+	if(flag==1)
+	{
+		printf("Player 1 wins the game!! =)\n");
+	}
+	else if(flag==2)
+	{
+		printf("Player 2 wins the game!! =)\n");
 	}
 }
 void display()
