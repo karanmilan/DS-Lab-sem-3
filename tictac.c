@@ -5,6 +5,7 @@ void player2();
 int flag=0;
 void checkcondition();
 char tictac [3][3];
+char p1,p2;
 void main()
 {
 	int i,j;
@@ -18,14 +19,16 @@ void main()
 	char ele;
 	printf("Please enter the element to be chosen by player 1 'X' or 'O'\n");
 	scanf("%c",&ele);	
-	char p1,p2;
+	
 	if(ele=='x'||'X')
-		p1='X';
+	{	p1='X';
 		p2='O';
-	else
+	}	
+	else if(ele=='x'||'X')
+	{
 		p1='O';
 		p2='X';
-	
+	}
 	for(i=0;i<4;i++)
 	{
 		player1();
@@ -34,12 +37,22 @@ void main()
 		player2();
 		display();
 		checkcondition();
+		if(flag==0)
+			printf("the game is a draw game\n");
+		else if(flag==1)
+			printf("Player 1 is winner\n");
+		else if(flag==2)
+			printf("Player 2 is winner\n");
 	}
 		player1();
 		display();
 		checkcondition();
 		if(flag==0)
 			printf("the game is a draw game\n");
+		else if(flag==1)
+			printf("Player 1 is winner\n");
+		else if(flag==2)
+			printf("Player 2 is winner\n");
 }
 void player1()
 {
@@ -111,28 +124,35 @@ void checkcondition()
 	{
 		if(tictac[1][1]==p1)
 		{	flag=1;
-			break;
+			
 		}
 		else
 		{	flag=2;
-			break;
+			
 		}
 	}
 }
 void display()
 {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	printf("\t\t    %c | %c | %c\n",tictac[0][0],tictac[0][1],tictac[0][2]);
+	printf("\t\t------------------\n");
+	printf("\t\t    %c | %c | %c\n",tictac[1][0],tictac[1][1],tictac[1][2]);
+	printf("\t\t------------------\n");
+	printf("\t\t    %c | %c | %c\n",tictac[2][0],tictac[2][1],tictac[2][2]);
+	
+	printf("\n");
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
