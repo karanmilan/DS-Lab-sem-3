@@ -19,7 +19,7 @@ void main()
 	char ele;
 	printf("Please enter the element to be chosen by player 1 'X' or 'O'\n");
 	scanf("%c",&ele);	
-	
+	display();
 	if(ele=='x'||'X')
 	{	p1='X';
 		p2='O';
@@ -37,8 +37,6 @@ void main()
 		player2();
 		display();
 		checkcondition();
-		if(flag==0)
-			printf("the game is a draw game\n");
 		else if(flag==1)
 			printf("Player 1 is winner\n");
 		else if(flag==2)
