@@ -7,29 +7,12 @@ int stack[15];
 int top = -1;
 
 void main()
-{	top=-1;
-	int i;
-	/* printf("Please enter the number of variables in the expression\n");
-	int n;
-	scanf("%d",&n);
-	char var[n];
-	
-	for(i=0;i<n;i++)
-	{
-		var[i]='A'+i;
-		
-	}
-	printf("Please enter the values of each variable\n");
-	int val[n];*/
+{	int i;
 	int a,b,temp;
-	/*for(i=0;i<n;i++)
-	{
-		scanf("%d",&val[i]);
-	}*/
-	printf("Please input a valid postfix expression\n");
 	char post[50];
-		
+	printf("Please input a valid postfix expression\n");
 	gets(post);
+	
 	for(i=0;post[i] != '\0';i++)
 	{
 		if (isop(post[i]) == 0)
