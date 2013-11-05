@@ -171,48 +171,7 @@ void cadd(node*header1,node*header2,node*header3,int m,int n)
  {
 
  for(i=y+1;i<n;i++)118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
- temp1=temp1->link;
+  temp1=temp1->link;
  x++;
  }
  else if((temp1->expo)<(temp2->expo))
@@ -233,8 +192,6 @@ void cadd(node*header1,node*header2,node*header3,int m,int n)
  temp->link=NULL;
  temp1=temp1->link;
  temp2=temp2->link;
-Commit summary: Extended description: (optional)
-abhi12ravi abhi12ravi@gmail.com
 
 
  {
